@@ -30,28 +30,57 @@ class MyClassVector1
           }    
       } 
 };
+class MyClassvector2 {
+    vector<int>& vec;
+  
+public:
+    // this is the right way to assign
+    // the reference of stl container
+    MyClassvector2(vector<int>& arr)
+        : vec(arr)
+    {
+    }
+    void print()
+    {
+        /// print the value of vector
+        for (int i = 0; i < vec.size(); i++)
+            cout << vec[i] << " ";
+    }
+};
+class MyClassvector3 {
+    vector<int> vec;
+  
+public:
+    MyClassvector3(vector<int> v) 
+    {
+       vec = v;
+    }
+    void print()
+    {
+        /// print the value of vector
+        for (int i = 0; i < vec.size(); i++)
+            cout << vec[i] << " ";
+    }
+};
 
-int main() 
+
+  
+
+int main(int argc, char* argv[]) 
 {
-    /****Section_Name***Vectors*/ 
-    //Write the base code for: 5. std::vector example
-    vector<double> vd; //vd elments are floating point numbers
-    vector<int> vi; //vi elements are integer numbers 
-    vector<string> vs; //vs elements are string objects 
+    vector<double> vd;
+       vd.push_back(1);
+       vd.push_back(2);
+       vd.push_back(3);
+       vd.push_back(55.4); 
 
-    //Expand this code to:
+  vector<int> vi; 
+  //add 3 elements to the vi vector
+      vi.push_back(1);
+      vi.push_back(4);
+      vi.push_back(-8);
 
-    //add 3 elements to the vd vector
-
-    vd.push_back(1);
-    vd.push_back(2);
-    vd.push_back(3);
-    vd.push_back(55.4); 
-
-    //add 3 elements to the vi vector
-vi.push_back(1);
-vi.push_back(4);
-vi.push_back(-8);
+    vector<string> vs;  
    // add 3 elements to the vs vector
    vs.push_back("a");
    vs.push_back("2");
@@ -94,8 +123,42 @@ vi.push_back(-8);
             vec.push_back(i); 
         MyClassVector1 obj(vec); 
         obj.print(); 
+
+
       
       //Continue with MyClassVector2 and MyClassVector3
+cout <<"\nvector_as_class_member" <<endl;
+ vector<int> vec1;
+    for (int i = 1; i <= 5; i++)
+        vec1.push_back(i);
+    MyClassvector2 obj1(vec1);
+  
+obj1.print();
+
+//MyClassvector3
+
+cout <<"\nVector_as_Class_Member" << endl;
+ vector<int> vec3;
+    for (int i = 1; i <= 5; i++)
+        vec3.push_back(i);
+    MyClassvector3 obj3(vec3);
+  
+obj3.print(); 
+vector <int> vint(10);
+vint[0]=10;
+vint[1]=20;
+vint[2]=30;
+vint[3]=40;
+vint[4]=50;
+vint[5]=60;
+vint[6]=70;
+vint[7]=80;
+vint[8]=90;
+vint[9]=100;
+vector<int>::iterator it;
+for(it=vint.begin(); it!=vint.end(); ++it){
+  cout<<" "<<*it;
+}
 
     /****Section_Name***STL_Iterators*/ 
     
